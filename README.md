@@ -25,3 +25,10 @@ Client service also uses token-based authentication. How it works? - when you se
 ![recommendation check](./images/rec_check.png)
 5. Check whether db service and business logic service isolated
 ![isolation](./images/isolation.png)
+
+## Nota bene
+To interact with client service use this token: **supersecretclienttoken**
+
+For internal communication between services use this token: **tokenforinternalusage**
+
+To interact with LLM create API key in https://openrouter.ai/
