@@ -1,0 +1,12 @@
+curl -X POST http://127.0.0.1:9000/write \
+    -H "Content-Type: application/json" \
+    -d '{"title": "Test Book", "author": "Test Author"}'
+
+curl -X POST http://127.0.0.1:8000/database/write \
+    -H "Authorization: Bearer supersecretclienttoken" \
+    -H "Content-Type: application/json" \
+    -d '{"title": "Test Book", "author": "Test Author"}'
+
+curl -X GET "http://127.0.0.1:8000/recommendation?preferences=i%20like%20george%20orwell" \
+    -H "Authorization: Bearer supersecretclienttoken" \
+    -H "Content-Type: application/json"
