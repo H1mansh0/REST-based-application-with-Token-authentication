@@ -30,7 +30,7 @@ def get_all_books() -> list:
 @app.get("/")
 def get_description():
     return {
-        "description": "This is the database service, which give user ability to communicate with database. You can perform writing operation on endpoint /write. You can perform reading operation on endpoint /read."
+        "description": "This is the business logic service, which give user ability to receive book recommandation based on his/her preferences. To get recommandation use endpoint /recommendation?preferences=value."
     }
 
 @app.get("/health")

@@ -32,19 +32,20 @@ def get_description():
 def health_check():
     return {"status": "ok"}
 
-@app.get("/database/read")
+@app.get("/books/read")
 def read_database(authorization: str = Header(None)):
     check_authorization(authorization)
     
     health_status = requests.get(url=f"{DB_URL}/health")
 
     if health_status.json()["status"] == "ok":
-        books = requests.get(url=f"{DB_URL}/read")
+        books = requests.get(url=f"{DB_URL}/read",
+                             headers={"Authorization": f"Bearer {COMMUNTICATING_TOKEN}"})
         return books.json()
     else:
         raise HTTPException(status_code=503, detail="Service unavailable")
     
-@app.post("/database/write", status_code=201)
+@app.post("/books/write", status_code=201)
 def write_database(book: Book, authorization: str = Header(None)):
     check_authorization(authorization)
 
