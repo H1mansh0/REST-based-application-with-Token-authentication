@@ -14,7 +14,7 @@ Client service also uses token-based authentication. How it works? - when you se
 2. **/books/write**: Client -> Client Service -> DB Service -> Client Service -> Client
 3. **/recommendation**: Client -> Client Service -> Business Logic Service -> DB Service -> Business Logic Service -> Client Service -> Client
 
-## Example of usage
+## Example of usage (using ```curl```)
 1. Start app
 ![app start](./images/app.png)
 2. Get all books
