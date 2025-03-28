@@ -25,7 +25,7 @@ def check_authorization(authorization):
 @app.get("/")
 def get_description():
     return {
-        "description": "This is client service, the only service which can interact with external users. You can write new books to the database and read old books from it: use /database/write endpoint for writing and /database/read endpoint for reading. You can also get a recommendation based on your preferences about which book you might like: use /process?preferences=value for receiving recommndation"
+        "description": "This is client service, the only service which can interact with external users. You can write new books to the database and read old books from it: use /books/write endpoint for writing and /books/read endpoint for reading. You can also get a recommendation based on your preferences about which book you might like: use /recommendation?preferences=value for receiving recommndation"
     }
 
 @app.get("/health")
