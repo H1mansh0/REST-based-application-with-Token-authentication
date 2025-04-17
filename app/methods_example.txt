@@ -7,6 +7,12 @@ curl -X POST http://127.0.0.1:8000/books/write \
     -H "Content-Type: application/json" \
     -d '{"title": "Test book", "author": "Test author"}'
 
+curl -X POST "http://127.0.0.1:8001/new_user" \
+    -H "Content-Type: application/json" \                                   
+    -d '{"name": "Andrew", "age": "45", "description": "CEO of AI startup"}'
+
+curl -X POST "http://127.0.0.1:8000/new_user" -H "Authorization: Bearer secret123" -H "Content-Type: application/json" -d '{"name": "Alice", "age": "30", "description": "A passionate software developer."}'
+
 curl -X GET "http://127.0.0.1:8000/recommendation?preferences=i%20like%dystopia" \
     -H "Authorization: Bearer supersecretclienttoken" \
     -H "Content-Type: application/json"

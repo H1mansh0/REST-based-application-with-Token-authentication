@@ -15,8 +15,8 @@ app = FastAPI()
 
 APP_TOKEN = os.getenv("CLIENT_TOKEN")
 COMMUNTICATING_TOKEN = os.getenv("TOKEN_FOR_COMMUNICATION")
-DB_URL = "http://127.0.0.1:9000"
-BUSINESS_URL = "http://127.0.0.1:8001"
+DB_URL = os.getenv("DB_URL")
+BUSINESS_URL = os.getenv("BUSINESS_URL")
 
 def check_authorization(authorization):
     if authorization != f"Bearer {APP_TOKEN}":

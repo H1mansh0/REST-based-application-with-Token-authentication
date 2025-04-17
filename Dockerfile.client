@@ -1,0 +1,13 @@
+FROM python:3.11.4
+
+WORKDIR /app
+
+COPY ./app/client_service.py .
+COPY ./app/requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENV CLIENT_TOKEN=supersecretclienttoken
+ENV TOKEN_FOR_COMMUNICATION=tokenforinternalusage
+ENV DB_URL=http://inner:9000
+ENV BUSINESS_URL=http://inner:8001

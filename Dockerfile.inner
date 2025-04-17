@@ -1,0 +1,15 @@
+FROM python:3.11.4
+
+WORKDIR /app
+
+COPY ./app/business_service.py .
+COPY ./app/db_service.py .
+COPY ./app/requirements.txt .
+COPY ./start_script_task2.sh .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENV API_KEY=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
+ENV CLIENT_TOKEN=supersecretclienttoken
+ENV TOKEN_FOR_COMMUNICATION=tokenforinternalusage
+ENV DB_URL=http://127.0.0.1:9000

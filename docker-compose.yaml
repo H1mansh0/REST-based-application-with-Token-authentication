@@ -1,0 +1,24 @@
+services:
+  inner:
+    build: 
+      context: .
+      dockerfile: Dockerfile.inner
+    networks:
+      - inner-network
+    command: [ "bash", "start_script_task2.sh" ]
+    
+  
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - "8000:8000"
+    depends_on:
+      - inner
+    networks:
+      - inner-network
+    command: [ "uvicorn", "client_service:app", "--host", "0.0.0.0", "--port", "8000" ]
+
+networks:
+  inner-network:
